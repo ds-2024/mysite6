@@ -26,11 +26,16 @@ public class UserController {
 		UserVo authUser = userService.exeLogin(userVo);
 		System.out.println(authUser);
 		
+		
+		if(authUser == null) {
+			return "redirect:/user/loginform";
+			
+		}else {
 		//세션에 올린다
 		session.setAttribute("authUser", authUser); // HttpSession session 넣어줘야 세션 작동하지 > 그리고 임폴트!
 		return "redirect:/main";
+		}
 	}
-	
 	//로그인폼
 	@RequestMapping(value = "/user/loginform",  method = {RequestMethod.GET, RequestMethod.POST})
 	public String loginform() {

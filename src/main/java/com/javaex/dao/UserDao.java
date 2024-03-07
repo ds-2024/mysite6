@@ -17,7 +17,7 @@ public class UserDao {
 		System.out.println("UserDao.userSelectByIdPw()");
 		System.out.println(userVo);
 		
-		UserVo authUser = sqlSession.selectOne("user.selectByIdPw", userVo); /*"namaspace.Id"*/
+		UserVo authUser = sqlSession.selectOne("user.selectByIdPw", userVo); /*"namespace.id"*/
 		System.out.println(authUser);
 		
 		return authUser; /* Userxml 만들고 나서 다시 controller 까지 갖고 와서 session에 저장해줘야지 */
